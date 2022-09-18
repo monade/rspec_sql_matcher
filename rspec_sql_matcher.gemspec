@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/rspec_sql_matcher/version"
+require_relative "lib/rspec/sql_matcher/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "rspec_sql_matcher"
-  spec.version       = RspecSqlMatcher::VERSION
+  spec.version       = RSpec::SqlMatcher::VERSION
   spec.authors       = ["Mònade"]
   spec.email         = ["hello@monade.io"]
 

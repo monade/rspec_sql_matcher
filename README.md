@@ -1,16 +1,15 @@
 # RSpec match_structure
 
-[![Ruby Gem](https://github.com/monade/rspec_match_structure/actions/workflows/gem-push.yml/badge.svg)](https://github.com/monade/rspec_match_structure/actions/workflows/gem-push.yml)
+[![Ruby Gem](https://github.com/monade/rspec_sql_matcher/actions/workflows/gem-push.yml/badge.svg)](https://github.com/monade/rspec_sql_matcher/actions/workflows/gem-push.yml)
 
-Raise your expectations! RSpec match_structure is a gem that allows to test the structure of your string, hashes and lists.
-
+A gem to match SQL queries within your RSpec tests
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rspec_match_structure'
+gem 'rspec_sql_matcher'
 ```
 
 And then execute:
@@ -19,62 +18,36 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install rspec_match_structure
+    $ gem install rspec_sql_matcher
 
 ## Usage
 
-`match_strucure` can match various types of data and structures against schemas. A dead simple example of what it can do is:
+This gem defines a couple of matchers that can help to capture queries and check if they are correctly formatted.
+
+Moreover, with the `RSpec::SqlMatcher::Helpers` module, it defines a set of helper methods to capture data from queries executed inside theirs blocks.
+
+### have_run_queries
+`have_run_queries` can match if a query has been run inside a block. For instance:
 
 ```ruby
-expect(["a", "b", "c"]).to match_structure(a_list_of(String).with(2).elements_at_least)
+expect { YourJob.perform_now }.to have_run_queries
 ```
 
-Another example:
+It accepts various options:
 
 ```ruby
-expect([
-         {
-           id: '1',
-           type: 'users'
-         },
-         {
-           id: '2',
-           type: 'users'
-         },
-         {
-           id: '1',
-           type: 'posts'
-         }
-       ]).to match_structure(a_list_with({ type: 'users' }).exactly(2).times)
+expect { YourJob.perform_now }.to have_run_queries(exactly: 2)
+expect { YourJob.perform_now }.to have_run_queries(min: 2, max: 5)
 ```
 
-It can also match string agains regular expressions:
+### match_query
+`match_query` can match query content using regular expressions. For instance:
 
 ```ruby
- expect("abc").to match_structure( /abc/ )
+expect { User.very_complex_scope }.to match_query(/ GROUP BY "users"."id"/)
 ```
 
-This is especially useful when you want to test a JSON:API response:
-
-```ruby
-
-    expect(response.body).to match_structure(
-                               {
-                                 data: {
-                                     id: String,
-                                     type: 'someType',
-                                     attributes: {
-                                       anAttribute: String
-                                     }
-                                },
-                                 included: [
-                                   a_list_with({ type: 'relatedType' }).exactly(1).times
-                                 ]
-                               }
-                             )
-```
-
-To see all the various features please refer to the [spec file](https://github.com/monade/rspec_match_structure/blob/master/spec/rspec_match_structure_spec.rb).
+To see all the various features please refer to the [spec file](https://github.com/monade/rspec_sql_matcher/blob/main/rspec_sql_matcher).
 
 ## Development
 
@@ -84,8 +57,17 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/monade/rspec_match_structure.
+Bug reports and pull requests are welcome on GitHub at https://github.com/monade/rspec_sql_matcher.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+About Monade
+----------------
+
+![monade](https://monade.io/wp-content/uploads/2021/06/monadelogo.png)
+
+your_gem_name is maintained by [mònade srl](https://monade.io/en/home-en/).
+
+We <3 open source software. [Contact us](https://monade.io/en/contact-us/) for your next project!
