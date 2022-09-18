@@ -1,4 +1,4 @@
-# RSpec match_structure
+# RSpec SQL Matcher
 
 ![Tests](https://github.com/monade/rspec_sql_matcher/actions/workflows/test.yml/badge.svg)
 [![Gem Version](https://badge.fury.io/rb/rspec_sql_matcher.svg)](https://badge.fury.io/rb/rspec_sql_matcher)
