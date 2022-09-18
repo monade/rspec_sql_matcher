@@ -1,6 +1,7 @@
 # RSpec match_structure
 
-[![Ruby Gem](https://github.com/monade/rspec_sql_matcher/actions/workflows/gem-push.yml/badge.svg)](https://github.com/monade/rspec_sql_matcher/actions/workflows/gem-push.yml)
+![Tests](https://github.com/monade/rspec_sql_matcher/actions/workflows/test.yml/badge.svg)
+[![Gem Version](https://badge.fury.io/rb/rspec_sql_matcher.svg)](https://badge.fury.io/rb/rspec_sql_matcher)
 
 A gem to match SQL queries within your RSpec tests
 
@@ -68,6 +69,6 @@ About Monade
 
 ![monade](https://monade.io/wp-content/uploads/2021/06/monadelogo.png)
 
-your_gem_name is maintained by [mònade srl](https://monade.io/en/home-en/).
+rspec_sql_matcher is maintained by [mònade srl](https://monade.io/en/home-en/).
 
 We <3 open source software. [Contact us](https://monade.io/en/contact-us/) for your next project!
