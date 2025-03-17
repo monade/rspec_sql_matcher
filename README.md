@@ -67,8 +67,8 @@ The gem is available as open source under the terms of the [MIT License](https:/
 About Monade
 ----------------
 
-![monade](https://monade.io/wp-content/uploads/2021/06/monadelogo.png)
+![monade](https://monade.io/wp-content/uploads/2023/02/logo-monade.svg)
 
-rspec_sql_matcher is maintained by [mònade srl](https://monade.io/en/home-en/).
+active_queryable is maintained by [mònade srl](https://monade.io).
 
-We <3 open source software. [Contact us](https://monade.io/en/contact-us/) for your next project!
+We <3 open source software. [Contact us](https://monade.io) for your next project!

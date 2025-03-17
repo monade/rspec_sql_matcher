@@ -1,17 +1,20 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
-
-# Specify your gem's dependencies in rspec_sql_matcher.gemspec
+source 'https://rubygems.org'
 gemspec
 
-gem "rake", "~> 13.0"
+rails_version = ENV['CI_RAILS_VERSION'] || '>= 0.0'
 
-gem "rspec", "~> 3.0"
+gem "activerecord", rails_version
 
-gem "rubocop", "~> 1.7"
-
-gem "simplecov"
-
-gem "activerecord", "~> 7.0", ">= 7.0.3"
-gem "sqlite3"
+if ['~> 8.0.0', '>= 0', '>= 0.0'].include?(rails_version)
+  gem 'sqlite3', '~> 2'
+else
+  gem 'sqlite3', '~> 1.7.3'
+end
+gem 'typeprof'
+gem 'logger'
+gem 'mutex_m'
+gem 'base64'
+gem 'bigdecimal'
+gem 'benchmark'
