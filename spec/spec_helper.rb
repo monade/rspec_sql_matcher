@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'logger'
 require 'rspec/sql_matcher'
 
 Dir[File.expand_path('support/*.rb', __dir__)].each { |f| require f }
