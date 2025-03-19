@@ -9,7 +9,7 @@ if ENV['ACTIVE_RECORD_ADAPTER'] == 'mysql'
     host: ENV['DB_HOST'] || '127.0.0.1',
     username: ENV['DB_USERNAME'] || 'root',
     password: ENV['DB_PASSWORD'],
-    database: ENV['DB_USERNAME']
+    database: ENV['DB_NAME']
   )
 elsif ENV['ACTIVE_RECORD_ADAPTER'] == 'postgresql'
   puts 'Running on PostgreSQL...'
